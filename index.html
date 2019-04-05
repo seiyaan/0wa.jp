@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>0和.net</title>
+    <meta name="author" content="k_i">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ja.js"></script>
+
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/common.css">
+</head>
+
+<body>
+
+<main>
+    <div id="reiwa">
+        <p id="reiwa-prefix">{{ prefix }}</p>
+        <p id="reiwa-count">{{ count }}</p>
+        <p id="reiwa-suffix">{{ suffix }}</p>
+    </div>
+</main>
+
+<footer>
+    <address>Copyright 平成31年 <a href="https://twitter.com/k_i">k_i</a> All Rights Reserved.</address>
+</footer>
+
+<script>
+    const beginDt = moment('2019-05-01 00:00:00');
+
+    const vm = new Vue({
+        el : '#reiwa',
+        data : { prefix : '', count : 'Now Loading...', suffix : ''}
+    });
+
+    setInterval(function () {
+        const
+            nowDt   = moment(),
+            isReiwa = beginDt <= nowDt,
+            diff = isReiwa ? nowDt.diff(beginDt) : beginDt.diff(nowDt.clone().add(-1, 's'));
+
+        const
+            duration = moment.duration(diff),
+            days = Math.floor(duration.asDays()).toString().padStart(2, "0"),
+            hours   = duration.hours().toString().padStart(2, "0"),
+            minutes = duration.minutes().toString().padStart(2, "0"),
+            seconds = duration.seconds().toString().padStart(2, "0");
+
+        if(isReiwa) {
+            vm.prefix = "令和になって";
+            vm.suffix = "が経ちました。";
+        } else {
+            vm.prefix = "令和まであと";
+            vm.suffix = "です。";
+        }
+
+        vm.count = days + '日' +  hours + '時' + minutes + '分' + seconds + '秒';
+
+    }, 500);
+</script>
+
+</body>
+</html>
+
