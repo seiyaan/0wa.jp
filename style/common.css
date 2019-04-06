@@ -1,20 +1,103 @@
 @charset "UTF-8";
 
+/*
+#EAADBD 梅
+#554562 すみれ
+#FADBE0 さくら
+ */
+
+*,
+*:before,
+*:after {
+    transition: .3s;
+}
+
 html, body {
     height: 100%;
     font-family: "Sawarabi Mincho";
+    color: #554562;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    font-size: 1.3em;
+    text-align: center;
+    z-index: 2;
+}
+
+header > ul {
+    list-style: none;
+    display: flex;
+    height: 70px;
+    justify-content: center; /*横中央寄せ*/
+    align-items: center; /*縦中央寄せ*/
+}
+
+header > ul > li {
+    padding: 0 20px;
+}
+
+header > ul > li:not(:last-child) {
+    border-right: 1px solid;
 }
 
 main {
     width: 100%;
     height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    opacity: 0.4;
+    background-image: url(https://find47.jp/ja/i/cdTH3/image_file);
+}
+
+section.content_area {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto 0;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-    z-index: 1;
+}
+
+section.content_area > div {
+    background-color: #FADBE0;
+    padding: 30px;
+    width: 100%;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+section.content_area h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0 0 50px 0;
+}
+
+section.content_area p {
+    font-size: 1.2em;
+    line-height: 2em;
 }
 
 footer {
@@ -22,9 +105,9 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 50px;
-    line-height: 50px;
-    font-size: 0.9em;
+    height: 100px;
+    line-height: 20px;
+    font-size: 0.8em;
     text-align: center;
     z-index: 2;
 }
@@ -58,3 +141,4 @@ footer {
         font-size: 6em;
     }
 }
+
