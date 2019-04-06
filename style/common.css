@@ -28,6 +28,7 @@ html, body {
     background-size: cover;
     opacity: 0.4;
     background-image: url(https://find47.jp/ja/i/cdTH3/image_file);
+    z-index: -1;
 }
 
 a {

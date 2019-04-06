@@ -5,6 +5,7 @@
     <title>令和カウントダウンサイト【0和.net】</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <meta name="author" content="k_i">
+    <meta name="description" content="令和まであとどのぐらい？令和になるまでをカウントダウンするWEBサイトです。">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116287905-3"></script>
@@ -80,7 +81,7 @@
 
     const vm = new Vue({
         el : '#reiwa',
-        data : { prefix : '', count : 'Now Loading...', suffix : ''}
+        data : { prefix : '令和まであと', count : 'XX日XX時XX分XX秒', suffix : 'です'}
     });
 
     setInterval(function () {
