@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>0和.net</title>
+    <title>令和カウントダウンサイト【0和.net】</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="k_i">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -62,10 +63,10 @@
 
         if(isReiwa) {
             vm.prefix = "令和になって";
-            vm.suffix = "が経ちました。";
+            vm.suffix = "が経ちました";
         } else {
             vm.prefix = "令和まであと";
-            vm.suffix = "です。";
+            vm.suffix = "です";
         }
 
         vm.count = days + '日' +  hours + '時' + minutes + '分' + seconds + '秒';
