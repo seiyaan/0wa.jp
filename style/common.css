@@ -72,6 +72,30 @@ main {
     text-align: center;
 }
 
+main ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    display: flex;
+    height: 70px;
+    justify-content: center; /*横中央寄せ*/
+    align-items: center; /*縦中央寄せ*/
+}
+
+main ul > li > a {
+
+    padding: 10px 20px;
+    border: 1px solid #554562;
+    border-radius: 5px;
+    display: block;
+    text-decoration: none;
+}
+
+main ul > li > a:hover {
+    background-color: #554562;
+    color : white;
+}
+
 /*
 .background {
     position: absolute;

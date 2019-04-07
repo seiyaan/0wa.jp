@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <title>令和カウントダウンサイト【0和.net】</title>
+    <title>令和まであと...カウントダウンサイト【0和.net】</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <meta name="author" content="k_i">
     <meta name="description" content="令和まであとどのぐらい？令和になるまでをカウントダウンするWEBサイトです。">
@@ -46,6 +46,10 @@
         <p id="reiwa-prefix">{{ prefix }}</p>
         <p id="reiwa-count">{{ count }}</p>
         <p id="reiwa-suffix">{{ suffix }}</p>
+
+        <ul id="share">
+            <li><a href="#" onclick="shareTwitter(); return false;">Twitterでつぶやく</a></li>
+        </ul>
     </div>
 </main>
 
@@ -81,7 +85,7 @@
 
     const vm = new Vue({
         el : '#reiwa',
-        data : { prefix : '令和まであと', count : 'XX日XX時XX分XX秒', suffix : 'です'}
+        data : { prefix : '令和まであと', count : 'X日X時X分X秒', suffix : 'です'}
     });
 
     setInterval(function () {
@@ -108,6 +112,15 @@
         vm.count = days + '日' +  hours + '時' + minutes + '分' + seconds + '秒';
 
     }, 500);
+
+    function shareTwitter(){
+        const base_url = "https://twitter.com/intent/tweet";
+        const text = "text=" + vm.prefix + "『" +  vm.count + "』" + vm.suffix;
+        const share_url = "url=https://0和.jp/";
+        //const hashtags = "hashtags=令和";
+        const url = encodeURI( base_url + "?" + text + "&" + share_url /*+ "&" + hashtags*/);
+        window.open(url, '_blank');
+    }
 </script>
 
 </body>
